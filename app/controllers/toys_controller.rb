@@ -7,13 +7,15 @@ class ToysController < ApplicationController
   end
 
   def create
-    toy = Toys.create(toy_params)
+    # Uninitialized constant Toys controller 
+    toy = Toy.create(toy_params)
     render json: toy, status: :created
   end
 
   def update
     toy = Toy.find_by(id: params[:id])
     toy.update(toy_params)
+    render json: toy
   end
 
   def destroy
@@ -29,3 +31,5 @@ class ToysController < ApplicationController
   end
 
 end
+
+# https://media.istockphoto.com/id/909772478/photo/brown-teddy-bear-isolated-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=F4252bOrMfRTB8kWm2oM2jlb9JXY08tKCaO5G_ms1Uw=
